@@ -33,7 +33,7 @@ const LoginForm = (props) => {
     
         // Compare user info
         if (userData) {
-            if (userData.password == pass.value) {
+            if (userData.password === pass.value) {
                 setLoggedIn(true);
             }
         } else {
