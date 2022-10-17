@@ -2,28 +2,33 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 
+const LoginButton = (props) => {
+  const [loggedIn, setLoggedIn] = useState(false);
 
-const Button = styled.button`
-  background-color: mediumseagreen;
+  const handleClick = () => {
+    setLoggedIn(!loggedIn);
+  };
+
+  return (
+    <div>
+      <StyledButton onClick={handleClick}>
+        {loggedIn ? "Logout" : "Login"}
+      </StyledButton>
+    </div>
+  );
+}
+
+export default LoginButton;
+
+const StyledButton = styled.button`
+  background-color: #4caf50;
+  border: none;
   color: white;
-  padding: 5px 15px;
-  border-radius: 5px;
-  outline: 0;
-  text-transform: uppercase;
-  margin: 10px 0px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
   cursor: pointer;
-  box-shadow: 0px 2px 2px lightgray;
-  transition: ease background-color 250ms;
 `;
-
-class LoginButton extends React.Component {
-  render() {
-    return (
-      <Button onClick={this.props.onClick()}>
-      Login
-      </Button>
-    )
-}
-}
-
-export default LoginButton
