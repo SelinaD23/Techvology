@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavItem from 'react-bootstrap/NavItem';
 import NavbarBrand from 'react-bootstrap/esm/NavbarBrand';
 
-function NavBar() {
+const NavBar = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark">
