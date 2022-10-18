@@ -20,6 +20,9 @@ const NavBar = () => {
             <NavItem>
               <Nav.Link href="/donation" to="/donation">Donation</Nav.Link>
             </NavItem>
+            <NavItem>
+               <Nav.Link to="/action" href="/action">Action</Nav.Link>
+            </NavItem>
           </Nav>
         </Container>
       </Navbar>

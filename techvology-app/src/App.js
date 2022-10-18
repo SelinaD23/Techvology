@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar.js"
 import Leaderboard from "./pages/Leaderboard.js"
 import Donation from "./pages/Donation.js"
 import Home from "./pages/Home";
+import Action from "./pages/Action";
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/donation" element={<Donation />} />
+                <Route path="/action" element={<Action />} />
             </Routes>
         </div>
     );
