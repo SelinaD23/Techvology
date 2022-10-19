@@ -7,6 +7,7 @@ import Leaderboard from "./pages/Leaderboard.js"
 import Donation from "./pages/Donation.js"
 import Home from "./pages/Home";
 import Action from "./pages/Action";
+import Analytics from "./pages/Analytics";
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/donation" element={<Donation />} />
                 <Route path="/action" element={<Action />} />
+                <Route path="/analytics" element={<Analytics />} />
             </Routes>
         </div>
     );

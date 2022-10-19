@@ -1,19 +1,12 @@
 import React from 'react'
 
 const Donation = () => {
-
-  const styles = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  };
-
   return (
     <div style={styles}>
       <span>
         <h1>Clean Air Task Force<br /></h1> 
         <h2>Charity of the Month<br /></h2>
-        <img id="img" src="https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10102/Logo.png?v=1644418127000"></img>
+        <img id="img" src="https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10102/Logo.png?v=1644418127000" alt = "Charity Logo"></img>
         <h3>This month, our charity spotlight is on<br />
         Clean Air Task Force with their mission of<br />
         "driving change forward through policy and innovation."<br /></h3>
@@ -35,4 +28,10 @@ const Donation = () => {
   )
 }
 
-export default Donation
+export default Donation;
+
+const styles = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+};

@@ -23,6 +23,9 @@ const NavBar = () => {
             <NavItem>
                <Nav.Link to="/action" href="/action">Action</Nav.Link>
             </NavItem>
+            <NavItem>
+               <Nav.Link to="/analytics" href="/analytics">Analytics</Nav.Link>
+            </NavItem>
           </Nav>
         </Container>
       </Navbar>
