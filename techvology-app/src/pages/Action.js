@@ -1,6 +1,8 @@
 import React from 'react'
+import SearchBar from '../components/SearchBar';
 
 const Action = () => {
+
     const database = [ //Temp Database with manually created values
         {
             id: 1,
@@ -15,18 +17,19 @@ const Action = () => {
     ];
 
     return (
-        <div className="actions">
-            <h1>Actions</h1>
-            {database.map(action => { // Loops thru the database
-                return (
-                    <div key={action.id}>
-                        <h2>Action: {action.name}</h2>
-                        <h3>Carbon Emissions: {action.emissions}</h3>
-                        <hr />
-                    </div>
-                );
-            })}
-        </div>
+        <div><SearchBar /></div>
+        // <div className="actions">
+        //     <h1>Actions</h1>
+        //     {database.map(action => { // Loops thru the database
+        //         return (
+        //             <div key={action.id}>
+        //                 <h2>Action: {action.name}</h2>
+        //                 <h3>Carbon Emissions: {action.emissions}</h3>
+        //                 <hr />
+        //             </div>
+        //         );
+        //     })}
+        // </div>
     );
 }
 
