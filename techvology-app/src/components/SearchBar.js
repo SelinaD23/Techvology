@@ -2,7 +2,6 @@ import React from 'react'
 import TextField from '@mui/material/TextField';
 
 const SearchBar = (props) => {
-    const query = "Hello";
 
     const handleSearch = (e) => {
         console.log(e) 

@@ -1,35 +1,40 @@
-import React from 'react'
+import axios from 'axios';
+import {format} from "date-fns"
+
+import { React, useState, useEffect } from 'react'
 import SearchBar from '../components/SearchBar';
 
-const Action = () => {
+const baseUrl = "http://127.0.0.1:5000";
 
-    const database = [ //Temp Database with manually created values
-        {
-            id: 1,
-            name: 'Walking',
-            emissions: '0'
-        },
-        {
-            id: 2,
-            name: 'Driving',
-            emissions: '10 lbs per day'
-        }
-    ];
+const Action = () => {
+    const [actionsList, setActionsList] = useState([]);
+
+    const fetchActions = async () => {
+        const response = await axios.get(`${baseUrl}/actions`);
+        const { data } = response.data;
+        console.log(response.data.actions);
+        setActionsList(response.data.actions);
+    }
+
+    useEffect(() => {
+        fetchActions();
+    }, []);
 
     return (
-        <div><SearchBar /></div>
-        // <div className="actions">
-        //     <h1>Actions</h1>
-        //     {database.map(action => { // Loops thru the database
-        //         return (
-        //             <div key={action.id}>
-        //                 <h2>Action: {action.name}</h2>
-        //                 <h3>Carbon Emissions: {action.emissions}</h3>
-        //                 <hr />
-        //             </div>
-        //         );
-        //     })}
-        // </div>
+        <div>
+            <SearchBar />
+            <ul>
+                {actionsList.map(action => (
+                <li key={action.id}>
+                    <div style={{display: 'flex'}}>
+                        <h5>{action.title}</h5>
+                        <p>{format(new Date(action.created_at), "MM/dd/yyyy")}</p>
+                    </div>
+                    <p>Carbon Output: {action.carbon_output}</p>
+                </li>
+                ))}
+          </ul>
+        </div>
     );
 }
 
