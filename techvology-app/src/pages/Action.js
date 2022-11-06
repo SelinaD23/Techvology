@@ -11,7 +11,6 @@ const Action = () => {
 
     const fetchActions = async () => {
         const response = await axios.get(`${baseUrl}/actions`);
-        const { data } = response.data;
         console.log(response.data.actions);
         setActionsList(response.data.actions);
     }
@@ -22,7 +21,7 @@ const Action = () => {
 
     return (
         <div>
-            <SearchBar />
+            <SearchBar/>
             <ul>
                 {actionsList.map(action => (
                 <li key={action.id}>
