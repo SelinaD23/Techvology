@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import axios from 'axios';
 
 const baseUrl = "http://127.0.0.1:5000";
-const SearchBar = () => {
+const SearchBar = (props) => {
     const [query, setQuery] = React.useState('');
 
     const search = async(e) => {
@@ -14,6 +14,7 @@ const SearchBar = () => {
                     carbon_output: 999,
                 });
                 console.log(response);
+                props.fetchActions();
             }catch(err){
                 console.log(err);
             }

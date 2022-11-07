@@ -21,7 +21,7 @@ const Action = () => {
 
     return (
         <div>
-            <SearchBar/>
+            <SearchBar fetchActions={fetchActions}/>
             <ul>
                 {actionsList.map(action => (
                 <li key={action.id}>
