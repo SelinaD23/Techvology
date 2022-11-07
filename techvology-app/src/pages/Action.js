@@ -39,7 +39,7 @@ const Action = () => {
                 {actionsList.map((action) => (
                     <ListItem key={action.id}>
                         <ListItemText
-                            primary={action.title}
+                            primary={action.title + ": " + action.carbon_output + " lbs of carbon"}
                             secondary={format(new Date(action.created_at), "dd/MM/yyyy")}
                         />
                         <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(action.id)}>
