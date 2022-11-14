@@ -9,19 +9,19 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import SearchBar from '../components/SearchBar';
 
-const baseUrl = "http://127.0.0.1:5000";
+import BASE_URL from '../utilities/constants';
 
 const Action = () => {
     const [actionsList, setActionsList] = useState([]);
 
     const fetchActions = async () => {
-        const response = await axios.get(`${baseUrl}/actions`);
+        const response = await axios.get(`${BASE_URL}/actions`);
         setActionsList(response.data.actions);
     }
 
     const handleDelete = async (id) => {
         try{
-            await axios.delete(`${baseUrl}/actions/${id}`);
+            await axios.delete(`${BASE_URL}/actions/${id}`);
             fetchActions();
         }catch(err){
             console.log(err);

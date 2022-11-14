@@ -2,14 +2,15 @@ import React from 'react'
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
 
-const baseUrl = "http://127.0.0.1:5000";
+import BASE_URL from '../utilities/constants';
+
 const SearchBar = (props) => {
     const [query, setQuery] = React.useState('');
 
     const search = async(e) => {
         if(e.key === 'Enter') {
             try{
-                const response = await axios.post(`${baseUrl}/actions`, {
+                const response = await axios.post(`${BASE_URL}/actions`, {
                     title: e.target.value,
                     carbon_output: 999,
                 });
