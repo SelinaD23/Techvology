@@ -7,17 +7,34 @@ const LoginForm = (props) => {
     const [loggedIn, setLoggedIn] = useState(false);
     
     // Placeholder accounts database
-    const database = [
+   const database = [
         {
         username: "user",
         password: "pass"
+
         },
         {
         username: "admin",
         password: "admin"
         }
     ];
-    
+ 
+    /*
+    var database = [
+        {
+            username: "user",
+            password: "pass",
+            actions: []
+
+        },
+        {
+            username: "admin",
+            password: "admin",
+            actions: []
+        }
+    ];
+    */
+
     const error = "Your username and/or password are incorrect. Please try again.";
     
     const handleSubmit = (event) => {
