@@ -1,8 +1,12 @@
 import React from 'react'
+import DailyTip from '../components/DailyTip'
 
 const Home = () => {
   return (
-    <h1>Home Page</h1>
+    <div>
+      <h1>Home Page</h1>
+      <DailyTip />
+    </div>
   )
 }
 
