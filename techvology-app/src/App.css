@@ -13,3 +13,18 @@ html, body, #root {
     align-items: center;
     flex-direction: column;
 }
+
+.search {
+    width: 95%;
+    border: 2px solid #000;
+    border-radius: 2em;
+    overflow: hidden;
+    font-size: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.search__input {
+    padding: 1em;
+    width: 85%;
+}

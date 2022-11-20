@@ -13,11 +13,14 @@ import BASE_URL from '../utilities/constants';
 
 const Action = () => {
     const [actionsList, setActionsList] = useState([]);
+    const [searchList, setSearchList] = useState([]);
 
     const fetchActions = async () => {
         const response = await axios.get(`${BASE_URL}/actions`);
         setActionsList(response.data.actions);
+        setSearchList(response.data.actions);
     }
+
 
     const handleDelete = async (id) => {
         try{
@@ -34,9 +37,9 @@ const Action = () => {
 
     return (
         <div>
-            <SearchBar fetchActions={fetchActions}/>
+            <SearchBar actionsList={actionsList} setSearchList={setSearchList} />
             <List>
-                {actionsList.map((action) => (
+                {searchList.map((action) => (
                     <ListItem key={action.id}>
                         <ListItemText
                             primary={action.title + ": " + action.carbon_output + " lbs of carbon"}

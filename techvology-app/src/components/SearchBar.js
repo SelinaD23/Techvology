@@ -1,9 +1,31 @@
-import React from 'react'
+import { React, useState } from 'react'
 import TextField from '@mui/material/TextField';
-import axios from 'axios';
 
-import BASE_URL from '../utilities/constants';
+const SearchBar = ({ actionsList, setSearchList }) => {
+    const handleSubmit = (e) => e.preventDefault();
 
+    const handleSearchChange = (e) => {
+        if (!e.target.value) {
+            return setSearchList(actionsList);
+        }
+        const resultsArray = actionsList.filter(action => action.title.toLowerCase().includes(e.target.value.toLowerCase()));
+        setSearchList(resultsArray);
+    }
+
+    return (
+            <form className="search" onSubmit={handleSubmit}>
+                <input
+                    className="search__input"
+                    type="text"
+                    id="search"
+                    onChange={handleSearchChange}
+                />
+            </form>
+        )
+}
+export default SearchBar;
+
+/*
 const SearchBar = (props) => {
     const [query, setQuery] = React.useState('');
 
@@ -40,5 +62,4 @@ const SearchBar = (props) => {
         />
     )
 }
-
-export default SearchBar
+*/
