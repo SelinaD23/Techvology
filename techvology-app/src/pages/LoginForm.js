@@ -5,7 +5,7 @@ const LoginForm = (props) => {
 
     // React States
     const [errorMessages, setErrorMessages] = useState({});
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("loggedIn") !== null);
     
     const incorrect = "Your username and/or password are incorrect. Please try again.";
     
@@ -23,6 +23,7 @@ const LoginForm = (props) => {
         axios.post('/login', { body: {username: ""+login['username'], password: ""+login['password']} }, {'content-type': 'application/json'})
         .then(function(response) {
             setLoggedIn(true);
+            sessionStorage.setItem('loggedIn', true);
             setErrorMessages({name: "error", message: 'success'});
           }).catch(function(error) {
             setErrorMessages({ name: "error", message: incorrect });
