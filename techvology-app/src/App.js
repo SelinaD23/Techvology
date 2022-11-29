@@ -8,6 +8,7 @@ import Donation from "./pages/Donation.js"
 import Home from "./pages/Home";
 import Action from "./pages/Action";
 import Analytics from "./pages/Analytics";
+import Log from "./pages/Log";
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<LoginForm />} />
+                <Route path="/log" element={<Log />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/donation" element={<Donation />} />
                 <Route path="/action" element={<Action />} />

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import globalVal from '../utilities/globalVar';
 
 const LoginForm = (props) => {
 
@@ -9,7 +10,7 @@ const LoginForm = (props) => {
     
     const incorrect = "Your username and/or password are incorrect. Please try again.";
     
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         //Prevent page reload
         event.preventDefault();
         
@@ -18,16 +19,22 @@ const LoginForm = (props) => {
         var password = document.getElementById("pass").value;
         
         const login = {'username': username, 'password': password};
-
+       // setCurrentUser(username);
         // login with axios
         axios.post('/login', { body: {username: ""+login['username'], password: ""+login['password']} }, {'content-type': 'application/json'})
         .then(function(response) {
             setLoggedIn(true);
-            setErrorMessages({name: "error", message: 'success'});
+            setErrorMessages({ name: "error", message: 'success' });
           }).catch(function(error) {
             setErrorMessages({ name: "error", message: incorrect });
           });
     };
+
+    //const setCurrentUser = async (username) => {
+    //    const loggedUser = await axios.get(`${BASE_URL}/user/${username}`);
+    //    globalVal.userID = loggedUser.data.id;
+    //    console.log(globalVal.userID);
+    //};
 
     const handleRegister = (event) => {
         //Prevent page reload
@@ -106,7 +113,8 @@ const LoginForm = (props) => {
     return (
         <div className="login-form">
             <header> Welcome to Techvology. Please sign in to get started.</header>
-            {loggedIn ? <div>User is successfully logged in</div> : renderForm}
+            <header>{globalVal.userID}</header>
+            {loggedIn ? <div>{globalVal.userID} is successfully logged in</div> : renderForm}
         </div>
     );
 }

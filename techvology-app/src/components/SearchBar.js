@@ -1,8 +1,12 @@
 import { React, useState } from 'react'
+import axios from 'axios';
 import TextField from '@mui/material/TextField';
+
+import BASE_URL from '../utilities/constants';
 
 const SearchBar = ({ actionsList, setSearchList }) => {
     const handleSubmit = (e) => e.preventDefault();
+    //const [query, setQuery] = useState('');
 
     const handleSearchChange = (e) => {
         if (!e.target.value) {
@@ -12,13 +16,31 @@ const SearchBar = ({ actionsList, setSearchList }) => {
         setSearchList(resultsArray);
     }
 
+    const addFromSearch = async (e) => {
+        if (e.key === 'Enter') {
+            try {
+                const response = await axios.post(`${BASE_URL}/actions`, {
+                    title: e.target.value,
+                    carbon_output: 999,
+                });
+                console.log(response);
+               // props.fetchActions();
+            } catch (err) {
+                console.log(err);
+            }
+           // setQuery('');
+        }
+    }
+
     return (
             <form className="search" onSubmit={handleSubmit}>
                 <input
-                    className="search__input"
-                    type="text"
-                    id="search"
-                    onChange={handleSearchChange}
+                className="search__input"
+                type="text"
+                id="search"
+                onChange={handleSearchChange}
+                onKeyPress={addFromSearch}
+              //  value={query}
                 />
             </form>
         )
