@@ -6,7 +6,7 @@ const LoginForm = (props) => {
 
     // React States
     const [errorMessages, setErrorMessages] = useState({});
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("loggedIn") !== null);
     
     const incorrect = "Your username and/or password are incorrect. Please try again.";
     
