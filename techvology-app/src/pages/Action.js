@@ -17,6 +17,7 @@ const Action = () => {
     const [actionsList, setActionsList] = useState([]);
     const [searchList, setSearchList] = useState([]);
     const [currentUserLog, setCurrentUserLog] = useState([]);
+    const [currentUserLogDates, setCurrentUserLogDates] = useState([]);
 
     const fetchActions = async () => {
         const response = await axios.get(`${BASE_URL}/actions`);
@@ -39,19 +40,37 @@ const Action = () => {
     const handleLogAction = async (action) => {
         const currentUser = await axios.get(`${BASE_URL}/user/1`);
         console.log(currentUser);
-        setCurrentUserLog(currentUser.data.user.actionLog);
-        console.log(currentUserLog);
-        let array = currentUserLog;
-        array.push(action.id);
-        console.log(array);
+        //setCurrentUserLog(currentUser.data.user.actionLog);
+        //setCurrentUserLogDates(currentUser.data.user.actionDates);
+        //console.log(currentUserLog);
+        let actionArray = currentUser.data.user.actionLog;
+        let dateArray = currentUser.data.user.actionDates;
+        var userScore = currentUser.data.user.score;
+        userScore += action.carbon_output;
+        actionArray.push(action.id);
+        console.log(actionArray);
+        console.log('userScore: ' + userScore);
+        var today = new Date();
+        if (today.getMonth() < 10 && today.getDate() < 10) {
+            dateArray.push('0' + today.getDate() + '-0' + (today.getMonth() + 1) + '-' + today.getFullYear());
+        } else if (today.getMonth() < 10 && today.getDate() > 9) {
+            dateArray.push(today.getDate() + '-0' + (today.getMonth() + 1) + '-' + today.getFullYear());
+        } else if (today.getMonth() > 9 && today.getDate() < 10) {
+            dateArray.push('0' + today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear());
+        } else {
+            dateArray.push(today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear());
+        }
         await axios.put(`${BASE_URL}/user/1`, {
-            actionLog: array
+            actionLog: actionArray,
+            actionDates: dateArray,
+            score: userScore
         }).then(response => {
                 console.log(response);
         }).catch(error => {
                 console.log(err);
         });
-        setCurrentUserLog(array);
+        setCurrentUserLog(actionArray);
+        setCurrentUserLogDates(dateArray);
     }
 
     useEffect(() => {
@@ -60,7 +79,7 @@ const Action = () => {
 
     return (
         <div>
-            <SearchBar actionsList={actionsList} setSearchList={setSearchList} />
+            <SearchBar actionsList={actionsList} setSearchList={setSearchList} fetchActions={fetchActions} />
             <List>
                 {searchList.map((action) => (
                     <ListItem key={action.id}>

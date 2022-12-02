@@ -4,16 +4,16 @@ import TextField from '@mui/material/TextField';
 
 import BASE_URL from '../utilities/constants';
 
-const SearchBar = ({ actionsList, setSearchList }) => {
+const SearchBar = (props) => {
     const handleSubmit = (e) => e.preventDefault();
     //const [query, setQuery] = useState('');
 
     const handleSearchChange = (e) => {
         if (!e.target.value) {
-            return setSearchList(actionsList);
+            return props.setSearchList(props.actionsList);
         }
-        const resultsArray = actionsList.filter(action => action.title.toLowerCase().includes(e.target.value.toLowerCase()));
-        setSearchList(resultsArray);
+        const resultsArray = props.actionsList.filter(action => action.title.toLowerCase().includes(e.target.value.toLowerCase()));
+        props.setSearchList(resultsArray);
     }
 
     const addFromSearch = async (e) => {
@@ -24,10 +24,11 @@ const SearchBar = ({ actionsList, setSearchList }) => {
                     carbon_output: 999,
                 });
                 console.log(response);
-               // props.fetchActions();
+                props.fetchActions();
             } catch (err) {
                 console.log(err);
             }
+            e.target.value = "";
            // setQuery('');
         }
     }

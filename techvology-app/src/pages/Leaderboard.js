@@ -3,42 +3,30 @@ import { React, useState, useEffect } from 'react'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import axios from 'axios';
+
+import BASE_URL from '../utilities/constants';
 
 const Leaderboard = () => {
-    var database = [
-        {
-            username: "user",
-            password: "pass",
-            actionTotal: 100
+    const [usersList, setUsersList] = useState([]);
 
-        },
-        {
-            username: "admin",
-            password: "admin",
-            actionTotal: 50
-        },
-        {
-            username: "test",
-            password: "test",
-            actionTotal: 150
-        },
-        {
-            username: "kyle",
-            password: "pass",
-            actionTotal: 30
-        }
-    ];
+    const fetchUsers = async () => {
+        const response = await axios.get(`${BASE_URL}/user`);
+        console.log(response.data);
+        setUsersList(response.data.users);
+    }
 
-    const usersOrder = [...database].sort((a, b) => a.actionTotal - b.actionTotal);
-    console.log(usersOrder);
+    useEffect(() => {
+        fetchUsers();
+    }, []);
 
     return (
         <div>
             <List>
-                {usersOrder.map((user) => (
-                    <ListItem key={user.actionTotal}>
+                {usersList.map((user) => (
+                    <ListItem key={user.score}>
                     <ListItemText
-                        primary={user.username + ": " + user.actionTotal + " lbs of carbon"}
+                        primary={user.username + ": " + user.score + " lbs of carbon"}
                     />
                 </ListItem>
             ))}
