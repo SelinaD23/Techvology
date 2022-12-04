@@ -3,8 +3,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavItem from 'react-bootstrap/NavItem';
 import NavbarBrand from 'react-bootstrap/esm/NavbarBrand';
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const token = sessionStorage.getItem('token');
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    window.location.reload();
+  }
+
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -29,6 +37,11 @@ const NavBar = () => {
             <NavItem>
                <Nav.Link to="/analytics" href="/analytics">Analytics</Nav.Link>
             </NavItem>
+            {(token && token !== "" && token !== undefined) ?
+              <Button onClick={handleLogout}> Logout </Button>
+              :
+              <Button>Login</Button>
+            }
           </Nav>
         </Container>
       </Navbar>

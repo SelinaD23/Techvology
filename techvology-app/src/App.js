@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Action from "./pages/Action";
 import Analytics from "./pages/Analytics";
 import Log from "./pages/Log";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
     return (
