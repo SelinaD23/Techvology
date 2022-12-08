@@ -11,7 +11,7 @@ const Leaderboard = () => {
     const [usersList, setUsersList] = useState([]);
 
     const fetchUsers = async () => {
-        const response = await axios.get(`${BASE_URL}/user`);
+        const response = await axios.get(`${BASE_URL}/leaderboard`);
         console.log(response.data);
         setUsersList(response.data.users);
     }

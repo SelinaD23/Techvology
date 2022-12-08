@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import axios from 'axios';
-import {format} from "date-fns"
+import { IAuthTokens, TokenRefreshRequest, applyAuthTokenInterceptor } from 'axios-jwt'
+import { format } from "date-fns"
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -11,13 +12,10 @@ import IconButton from '@mui/material/IconButton';
 import SearchBar from '../components/SearchBar';
 
 import BASE_URL from '../utilities/constants';
-import globalVal from '../utilities/globalVar';
 
 const Action = () => {
     const [actionsList, setActionsList] = useState([]);
     const [searchList, setSearchList] = useState([]);
-    const [currentUserLog, setCurrentUserLog] = useState([]);
-    const [currentUserLogDates, setCurrentUserLogDates] = useState([]);
 
     const fetchActions = async () => {
         const response = await axios.get(`${BASE_URL}/actions`);
@@ -26,7 +24,6 @@ const Action = () => {
         setSearchList(response.data.actions);
         console.log(searchList);
     }
-
 
     const handleDelete = async (id) => {
         try{
@@ -38,12 +35,23 @@ const Action = () => {
     }
 
     const handleLogAction = async (action) => {
-        const currentUser = await axios.get(`${BASE_URL}/user/1`);
-        console.log(currentUser);
+        //const currentUser = await axios.get(`${BASE_URL}/user/1`);
+        console.log(sessionStorage.getItem("token"))
+        await axios.post(`${BASE_URL}/log_action`, {
+            action_id: action.id,
+            title: action.title,
+            carbon_output: action.carbon_output
+        }, { headers: { "Authorization": `Bearer ${sessionStorage.getItem("token")}` } }
+        ).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
+        //console.log(currentUser);
         //setCurrentUserLog(currentUser.data.user.actionLog);
         //setCurrentUserLogDates(currentUser.data.user.actionDates);
         //console.log(currentUserLog);
-        let actionArray = currentUser.data.user.actionLog;
+        /*let actionArray = currentUser.data.user.actionLog;
         let dateArray = currentUser.data.user.actionDates;
         var userScore = currentUser.data.user.score;
         userScore += action.carbon_output;
@@ -71,6 +79,7 @@ const Action = () => {
         });
         setCurrentUserLog(actionArray);
         setCurrentUserLogDates(dateArray);
+        */
     }
 
     useEffect(() => {
@@ -85,7 +94,6 @@ const Action = () => {
                     <ListItem key={action.id}>
                         <ListItemText
                             primary={action.title + ": " + action.carbon_output + " lbs of carbon"}
-                            secondary={format(new Date(action.created_at), "dd/MM/yyyy")}
                             onClick={() => handleLogAction(action)}
                         />
                         <IconButton edge="end" aria-label="add" onClick={() => handleLogAction(action)}>
