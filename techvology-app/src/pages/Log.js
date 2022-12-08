@@ -15,6 +15,8 @@ const Log = () => {
     const [actionsList, setActionsList] = useState([]);
     const [userActionsList, setUserActionsList] = useState([]);
     const [searchList, setSearchList] = useState([]);
+    const [actionTitle, setActionTitle] = useState("");
+    const [actionCarbon, setActionCarbon] = useState("");
 
     const fetchActions = async () => {
         const response = await axios.get(`${BASE_URL}/actions`);
@@ -40,6 +42,22 @@ const Log = () => {
         fetchUserActions();
     }
 
+    const handleCustomAction = async () => {
+        await axios.post(`${BASE_URL}/log_action`, {
+            action_id: 10000,               //just chose an arbitrary high number
+            title: actionTitle,
+            carbon_output: actionCarbon
+        }, { headers: { "Authorization": `Bearer ${sessionStorage.getItem("token")}` } }
+        ).then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
+        fetchUserActions();
+        setActionTitle = "";
+        setActionCarbon = "";
+    }
+
     useEffect(() => {
         fetchActions();
         fetchUserActions();
@@ -48,6 +66,23 @@ const Log = () => {
     return (
         <div>
             <SearchBar actionsList={userActionsList} setSearchList={setSearchList} fetchActions={fetchUserActions} />
+            <div>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Action Name"
+                    value={actionTitle}
+                    onChange={(e) => setActionTitle(e.target.value)}
+                />
+                <input
+                    type="text"
+                    id="carbon"
+                    placeholder="Carbon"
+                    value={actionCarbon}
+                    onChange={(e) => setActionCarbon(e.target.value)}
+                />
+                <button onClick={handleCustomAction}>Add Action</button>
+            </div>
             <List>
                 {searchList.slice(0).reverse().map((action) => (
                     <ListItem key={searchList.indexOf(action)}>

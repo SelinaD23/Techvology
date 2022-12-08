@@ -14,7 +14,7 @@ const Analytics = () => {
   const [weeklyAverages, setWeeklyAverages] = useState([]);
 
   const fetchWeeklyAverages = async () => {
-    const response = await axios.get(`${BASE_URL}/weeklyAverages`);
+    const response = await axios.get(`${BASE_URL}/weeklyAverages`, { headers: { "Authorization": `Bearer ${sessionStorage.getItem("token")}` } });
     setWeeklyAverages(response.data);
     console.log(response.data);
   }
