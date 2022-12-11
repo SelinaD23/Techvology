@@ -29,10 +29,10 @@ const Leaderboard = () => {
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-xl-2 text-center d-xl-flex justify-content-xl-center align-items-xl-center">
-                                        <h1 class="fw-boldy" style={{color: "#9FD983"}}>{index+1}</h1>
+                                        <h1 class="fw-bold" style={{color: "#9FD983"}}>{index+1}</h1>
                                     </div>
                                     <div class="col-md-6">
-                                        <h3 class="fw-semiboldy">{user.username}</h3>
+                                        <h3 class="fw-semibold">{user.username}</h3>
                                         <h5 class="text-muted mb-2">{user.score} pounds of carbon</h5>
                                     </div>
                                 </div>
