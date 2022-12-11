@@ -33,7 +33,7 @@ const Register = (props) => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)} />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={handleRegister} style={{ backgroundColor: '#37782C', color: '#FEFED3' }}>
+            <Button variant="primary" type="submit" onClick={handleRegister} style={{ backgroundColor: '#37782C' }}>
                 Register
             </Button>
         </Form>

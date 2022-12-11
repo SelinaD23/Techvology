@@ -8,6 +8,7 @@ import Register from '../components/Register';
 
 const User = () => {
     const [hasAccount, setHasAccount] = React.useState(true);
+    var currentUser = sessionStorage.getItem("curr_username");
 
     const handleJoin = () => {
         setHasAccount(!hasAccount);
@@ -19,14 +20,17 @@ const User = () => {
                 <Row>
                     <Col md={6}>
                         <div class="container-fluid py-5">
-                            <h1 class="display-5 fw">Join Us Today!</h1>
-                            <Button
-                                class="btn btn-lg"
-                                type="button"
-                                onClick={handleJoin}
-                                style={{ backgroundColor: '#37782C', color: '#FEFED3' }}>
-                                {hasAccount ? "Register" : "Login"}
-                            </Button>
+                            <h1 class="display-5 fw">{ currentUser? "Welcome " + currentUser +"!" :"Join Us Today!"}</h1>
+                            <div class="col-md-8 fs-4"> {currentUser ? "Track your next action today!" :
+                                <Button
+                                    class="btn btn-lg"
+                                    type="button"
+                                    onClick={handleJoin}
+                                    style={{ backgroundColor: '#37782C', color: '#FEFED3' }}>
+                                    {hasAccount ? "Register" : "Login"}
+                                </Button>
+                            }
+                            </div>
                         </div>
                     </Col>
                     <Col md={6}>
