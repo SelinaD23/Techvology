@@ -8,14 +8,14 @@ import cleanAirLogo from '../images/catf.jpeg';
 const Donation = () => {
   return (
     <div>
-      <div class="p-5 mb-4" style={{ backgroundColor: '#9FD983' }}>
+      <div class="p-5 mb-4" style={{ backgroundColor: '#37782C' }}>
         <div class="container-fluid py-5">
           <h1 class="display-5 fw-bold-center">Monthly Charity</h1>
           <p class="col-md-8 fs-4">Join the fight against climate change</p>
-          <Button class="btn btn-lg" type="button" href="https://www.catf.us/donate/" style={{backgroundColor: '#37782C', color: '#FEFED3'}}>Donate Now!</Button>
+          <Button class="btn btn-lg" type="button" href="https://www.catf.us/donate/" style={{backgroundColor: '#9FD983', color: '#37782C'}}>Donate Now!</Button>
         </div>
       </div>
-      <div class="p-5 mb-4" style={{ backgroundColor: '#9FD983' }}>
+      <div class="p-5 mb-4" style={{ backgroundColor: '#37782C' }}>
         <Row>
           <Col md={6}>
             <Image
