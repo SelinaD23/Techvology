@@ -37,7 +37,8 @@ const NavBar = (props) => {
             </ul><button class="btn border rounded-pill shadow-none" type="button" onClick={handleLogout}>Sign Out</button> </>
             :
               <>
-              <ul class="navbar-nav mx-auto"></ul>
+              <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a class="nav-link" href="/donation" to="/donation">Donation</a></li></ul>
               <a class="btn btn-light border rounded-pill shadow-none" type="button" href="/login" to="/login">Login</a>
               </>
           }
