@@ -23,16 +23,17 @@ const Leaderboard = () => {
     return (
         <div>
             <List>
-                {usersList.map((user) => (
+                {usersList.map((user, index) => (
                     <ListItem key={user.score}>
                         <div class="card-body bg-dark border rounded border-0" style={{marginLeft: '26px', marginRight: '26px', marginTop: '10px', marginBottom: '10px', paddingTop: '20px', paddingBottom: '20px'}}>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6 col-xl-2 text-center d-xl-flex justify-content-xl-center align-items-xl-center">
-                                        <h1 class="fw-bold text-primary">{user.score}</h1>
+                                        <h1 class="fw-bold text-primary">#{index+1}</h1>
                                     </div>
-                                    <div class="col-md-6 d-xl-flex justify-content-xl-start align-items-xl-center">
+                                    <div class="col-md-6">
                                         <h3 class="fw-semibold">{user.username}</h3>
+                                        <h5 class="text-muted mb-2">{user.score} pounds of carbon</h5>
                                     </div>
                                 </div>
                             </div>
