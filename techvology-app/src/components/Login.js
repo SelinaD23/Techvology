@@ -29,7 +29,7 @@ const Login = () => {
     return (
         <div>
             {(token && token !== "" && token !== undefined) ? 
-                <p class="display-6 ">Welcome {currentUser}!</p>:
+                <p/>:
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
@@ -40,7 +40,7 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)} value = {password}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit" onClick={handleLogin} style={{ backgroundColor: '#37782C', color: '#FEFED3' }}>
+                    <Button variant="primary" type="submit" onClick={handleLogin} style={{ backgroundColor: '#37782C' }}>
                         Login
                     </Button>
                 </Form>

@@ -10,6 +10,7 @@ const NavBar = (props) => {
   const token = sessionStorage.getItem('token');
   const handleLogout = () => {
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("curr_username");
     window.location.reload();
   }
 
