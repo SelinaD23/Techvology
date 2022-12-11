@@ -8,7 +8,6 @@ import Image from 'react-bootstrap/Image'
 import climateStrike from '../images/climate_strike.jpg';
 import climateChange from '../images/climate_change.jpg';
 
-import DailyTip from '../components/DailyTip'
 
 const Text = {
   fontSize: '1.5rem',

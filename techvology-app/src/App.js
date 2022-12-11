@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Action from "./pages/Action";
 import Analytics from "./pages/Analytics";
 import Log from "./pages/Log";
-import LoginPage from "./pages/LoginPage";
+import User from "./pages/User";
 
 const App = () => {
     return (
@@ -17,7 +17,7 @@ const App = () => {
             <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/login" element={<User />} />
                 <Route path="/log" element={<Log />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/donation" element={<Donation />} />

@@ -32,12 +32,7 @@ const Donation = () => {
           </Col>
         </Row>
       </div>
-
-
-
     </div>
-
-
   )
 }
 
