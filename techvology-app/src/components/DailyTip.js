@@ -32,35 +32,40 @@ const DailyTip = () => {
     setTip(response.data);
   }
 
-
   useEffect(() => {
     fetchTip();
   }, []);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Daily Tip</Button>
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box sx={style}>
-        <Button 
-          onClick={handleClose}
-          style={{float: "right", marginBottom: "10px"}}
-        >
-          <CloseIcon />
-        </Button>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          {tip.title}
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          {tip.description}
-        </Typography>
-      </Box>
-    </Modal>
+      <Button
+        class="btn btn-lg"
+        type="button"
+        onClick={handleOpen}
+        style={{backgroundColor: '#37782C', color: '#FEFED3'}}>
+        Daily Tip
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Button
+            onClick={handleClose}
+            style={{ float: "right", marginBottom: "10px"}}
+          >
+            <CloseIcon style={{ color: "#37782C"}}/>
+          </Button>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            {tip.title}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {tip.description}
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   )
 }
