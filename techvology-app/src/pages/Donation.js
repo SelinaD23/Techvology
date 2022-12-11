@@ -1,37 +1,45 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image'
+import cleanAirLogo from '../images/catf.jpeg';
 
 const Donation = () => {
   return (
-    <div style={styles}>
-      <span>
-        <h1>Clean Air Task Force<br /></h1> 
-        <h2>Charity of the Month<br /></h2>
-        <img id="img" src="https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10102/Logo.png?v=1644418127000" alt = "Charity Logo"></img>
-        <h3>This month, our charity spotlight is on<br />
-        Clean Air Task Force with their mission of<br />
-        "driving change forward through policy and innovation."<br /></h3>
-        <h4>Their Mission:<br /></h4>
-        <h5>Push the technology and policy changes needed to achieve a zero-emissions,<br />
-        high-energy planet at an affordable cost.</h5>
-        <h4>Their Vision:<br /></h4>
-        <h5>Meet the world’s rising energy demand in a way that is financially, <br />
-        socially, and environmentally sustainable.</h5>
-        <h4>Their Goal:<br /></h4>
-        <h5>Achieve zero-emissions energy, waste, agricultural, and forest management <br />
-        systems by 2050.</h5>
-        <a href="https://www.catf.us/donate/" target="_blank" rel="noreferrer">
-          <button>Donate Now!</button>
-        </a>
-      </span> 
-    
+    <div>
+      <div class="p-5 mb-4" style={{ backgroundColor: '#9FD983' }}>
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold-center">Monthly Charity</h1>
+          <p class="col-md-8 fs-4">Join the fight against climate change</p>
+          <Button class="btn btn-lg" type="button" href="https://www.catf.us/donate/" style={{backgroundColor: '#37782C', color: '#FEFED3'}}>Donate Now!</Button>
+        </div>
+      </div>
+      <div class="p-5 mb-4" style={{ backgroundColor: '#9FD983' }}>
+        <Row>
+          <Col md={6}>
+            <Image
+              src={cleanAirLogo}
+              fluid
+            />
+          </Col>
+          <Col md={6}>
+            <div class="py-5 ">
+              <h1 class="display-5 fw-bold-right" style={{ textAlign: 'right' }}>Clean Air Task Force</h1>
+              <p class="md-8 fs-4" style={{ textAlign: 'right' }}>Push the technology and policy changes needed to achieve a zero emissions,
+        high-energy planet at an affordable cost.</p>
+            </div>
+          </Col>
+        </Row>
+      </div>
+
+
+
     </div>
+
+
   )
 }
 
 export default Donation;
 
-const styles = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-};
