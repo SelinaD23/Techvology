@@ -13,7 +13,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
+  bgcolor: '#37782C',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -56,7 +56,7 @@ const DailyTip = () => {
             onClick={handleClose}
             style={{ float: "right", marginBottom: "10px"}}
           >
-            <CloseIcon style={{ color: "#37782C"}}/>
+            <CloseIcon style={{ color: '#FEFED3'}}/>
           </Button>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {tip.title}
