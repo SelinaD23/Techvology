@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import './App.css';
+
+import "./assets/bootstrap/css/bootstrap.min.css";
+import "./assets/css/Navbar-With-Button-icons.css"
 import LoginForm from "./pages/LoginForm.js"
 import NavBar from "./components/NavBar.js"
 import Leaderboard from "./pages/Leaderboard.js"
@@ -10,6 +12,7 @@ import Action from "./pages/Action";
 import Analytics from "./pages/Analytics";
 import Log from "./pages/Log";
 import User from "./pages/User";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
     return (
