@@ -25,9 +25,18 @@ const Leaderboard = () => {
             <List>
                 {usersList.map((user) => (
                     <ListItem key={user.score}>
-                    <ListItemText
-                        primary={user.username + ": " + user.score + " lbs of carbon"}
-                    />
+                        <div class="card-body bg-dark border rounded border-0" style={{marginLeft: '26px', marginRight: '26px', marginTop: '10px', marginBottom: '10px', paddingTop: '20px', paddingBottom: '20px'}}>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-xl-2 text-center d-xl-flex justify-content-xl-center align-items-xl-center">
+                                        <h1 class="fw-bold text-primary">{user.score}</h1>
+                                    </div>
+                                    <div class="col-md-6 d-xl-flex justify-content-xl-start align-items-xl-center">
+                                        <h3 class="fw-semibold">{user.username}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </ListItem>
             ))}
         </List>
