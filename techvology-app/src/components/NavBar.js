@@ -17,12 +17,13 @@ const NavBar = (props) => {
     <>
       <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark navbar-shrink py-3" id="mainNav">
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="/">
-          <span><img
+          <span style={{ marginRight: '10px' }}>
+            <img
             alt=""
             src={logoImage}
-            width="25"
-            height="25"
-            className="d-inline-block align-top"
+            width="40"
+            height="40"
+            className="d-inline-block align-center"
           />{' '}
           </span>
           <span>Techvology</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>

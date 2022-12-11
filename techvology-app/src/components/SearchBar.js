@@ -3,6 +3,7 @@ import axios from 'axios';
 import TextField from '@mui/material/TextField';
 
 import BASE_URL from '../utilities/constants';
+import { FormControl } from '@mui/material';
 
 const SearchBar = (props) => {
     const handleSubmit = (e) => e.preventDefault();
@@ -34,7 +35,7 @@ const SearchBar = (props) => {
     }
 
     return (
-            <form className="search" onSubmit={handleSubmit}>
+        <FormControl className="search" onSubmit={handleSubmit} fullWidth={true} variant="standard" style = {{marginLeft: '32px', margin: 'auto', marginBottom: '15px'}}>
                 <input
                 className="search__input"
                 type="text"
@@ -43,7 +44,7 @@ const SearchBar = (props) => {
                 onKeyPress={addFromSearch}
               //  value={query}
                 />
-            </form>
+        </FormControl>
         )
 }
 export default SearchBar;
