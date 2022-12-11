@@ -34,7 +34,7 @@ const NavBar = (props) => {
               <li class="nav-item"><a class="nav-link" to="/action" href="/action">Action</a></li>
               <li class="nav-item"><a class="nav-link" to="/log" href="/log">UserLog</a></li>
               <li class="nav-item"><a class="nav-link" to="/analytics" href="/analytics">Analytics</a></li>
-            </ul><button class="btn btn-light border rounded-pill shadow-none" type="button" onClick={handleLogout}>Sign Out</button> </>
+            </ul><button class="btn border rounded-pill shadow-none" type="button" onClick={handleLogout}>Sign Out</button> </>
             :
               <>
               <ul class="navbar-nav mx-auto"></ul>
