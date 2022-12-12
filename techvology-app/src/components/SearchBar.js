@@ -35,15 +35,21 @@ const SearchBar = (props) => {
     }
 
     return (
-        <FormControl className="search" onSubmit={handleSubmit} fullWidth={true} variant="standard" style = {{marginLeft: '32px', margin: 'auto', marginBottom: '15px'}}>
-                <input
-                className="search__input"
-                type="text"
-                id="search"
-                onChange={handleSearchChange}
-                onKeyPress={addFromSearch}
-              //  value={query}
-                />
+        <FormControl className="search" onSubmit={handleSubmit} fullWidth={true} variant="standard" style={{ marginLeft: '32px', margin: 'auto', marginBottom: '15px' }}>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-1"></div>
+                    <div class="col-10 col-md-4 col-xl-10 text-center">
+                        <input class="form-control d-xl-inline-flex justify-content-xl-center" type="search" placeholder="Search Action"
+                            id="search"
+                            onChange={handleSearchChange}
+                            onKeyPress={addFromSearch}
+                        //  value={query}
+                        />
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
         </FormControl>
         )
 }
