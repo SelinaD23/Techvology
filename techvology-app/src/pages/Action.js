@@ -28,6 +28,7 @@ const style = {
     bgcolor: '#666982',
     border: '2px solid #000',
     boxShadow: 24,
+    borderRadius: '40px',
     p: 4,
 };
 

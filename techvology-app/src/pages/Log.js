@@ -3,6 +3,11 @@ import axios from 'axios';
 import {format} from "date-fns"
 
 import List from '@mui/material/List';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import CloseIcon from '@mui/icons-material/Close';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -11,12 +16,30 @@ import SearchBar from '../components/SearchBar';
 
 import BASE_URL from '../utilities/constants';
 
+const style = {
+    textAlign: 'center',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: '#666982',
+    border: '2px solid #000',
+    boxShadow: 24,
+    borderRadius: '40px',
+    p: 4,
+};
+
 const Log = () => {
     const [actionsList, setActionsList] = useState([]);
     const [userActionsList, setUserActionsList] = useState([]);
     const [searchList, setSearchList] = useState([]);
     const [actionTitle, setActionTitle] = useState("");
     const [actionCarbon, setActionCarbon] = useState("");
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const fetchActions = async () => {
         const response = await axios.get(`${BASE_URL}/actions`);
@@ -36,6 +59,7 @@ const Log = () => {
             { headers: { "Authorization": `Bearer ${sessionStorage.getItem("token")}` } }
         ).then(response => {
             console.log(response);
+            handleOpen();
         }).catch(error => {
             console.log(error);
         });
@@ -90,6 +114,27 @@ const Log = () => {
                 <span>     </span>
                 <button onClick={handleCustomAction} class="btn border rounded-pill shadow-none">Add Action</button>
             </div>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <Button
+                        onClick={handleClose}
+                        style={{ float: "right", marginBottom: "10px" }}
+                    >
+                        <CloseIcon style={{ color: '#424354' }} />
+                    </Button>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Action removed!
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+
+                    </Typography>
+                </Box>
+            </Modal>
             <List>
                 {searchList.slice(0).reverse().map((action) => (
                         <div class="card" style={{ marginLeft: '32px', marginRight: '32px',paddingBottom: '15px' }}>
