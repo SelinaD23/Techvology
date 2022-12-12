@@ -64,7 +64,7 @@ const Action = () => {
                                     <div class="row" style={{ marginLeft: '0px', marginRight: '0px' , marginTop: '10px', marginBottom: '10px'}}>
                                         <div class="col-md-6 text-start" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
                                             <h4>{action.title}</h4>
-                                            <h6 class="text-muted mb-2">{action.carbon_output + " lbs of carbon"}</h6>
+                                            <h6 class="text-muted mb-2">{action.carbon_output + " grams of carbon"}</h6>
                                         </div>
                                         <div class="col-md-6 text-end d-xl-flex justify-content-xl-end align-items-xl-center">
                                             <IconButton edge="end" aria-label="add" onClick={() => handleLogAction(action)}>
@@ -79,10 +79,10 @@ const Action = () => {
                                                 </svg>
                                             </IconButton>
                                         </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 ))}
             </List>
         </div>

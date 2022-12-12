@@ -33,7 +33,7 @@ const Leaderboard = () => {
                                     </div>
                                     <div class="col-md-6">
                                         <h3 class="fw-semibold">{user.username}</h3>
-                                        <h5 class="text-muted mb-2">{user.score} pounds of carbon</h5>
+                                        <h5 class="text-muted mb-2">{user.score} grams of carbon</h5>
                                     </div>
                                 </div>
                             </div>
