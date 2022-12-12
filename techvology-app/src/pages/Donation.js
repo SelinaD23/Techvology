@@ -8,30 +8,34 @@ import cleanAirLogo from '../images/catf.jpeg';
 const Donation = () => {
   return (
     <div>
-      <div class="p-5 mb-4" style={{ backgroundColor: '#37782C' }}>
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold-center">Monthly Charity</h1>
-          <p class="col-md-8 fs-4">Join the fight against climate change</p>
-          <Button class="btn btn-lg" type="button" href="https://www.catf.us/donate/" style={{backgroundColor: '#9FD983', color: '#37782C'}}>Donate Now!</Button>
-        </div>
-      </div>
-      <div class="p-5 mb-4" style={{ backgroundColor: '#37782C' }}>
-        <Row>
-          <Col md={6}>
-            <Image
-              src={cleanAirLogo}
-              fluid
-            />
-          </Col>
-          <Col md={6}>
-            <div class="py-5 ">
-              <h1 class="display-5 fw-bold-right" style={{ textAlign: 'right' }}>Clean Air Task Force</h1>
-              <p class="md-8 fs-4" style={{ textAlign: 'right' }}>Push the technology and policy changes needed to achieve a zero emissions,
-        high-energy planet at an affordable cost.</p>
+      <section class="py-4 py-xl-5">
+        <div class="container h-100">
+          <div class="text-white border rounded border-0 p-4 py-5" style={{ backgroundColor: '#37782C' }}>
+            <div class="row h-100">
+              <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
+                <div>
+                  <h1 class="text-uppercase fw-bold text-white mb-3">Monthly Charity</h1>
+                  <p class="mb-4">Join the fight against climate change</p><button class="btn btn-light fs-5 py-2 px-4" type="button" href="https://www.catf.us/donate/" style={{backgroundColor: '#9FD983', color: '#37782C'}}>Donate Now!</button>
+                </div>
+              </div>
             </div>
-          </Col>
-        </Row>
-      </div>
+          </div>
+        </div>
+      </section>
+      
+      <div class="container bg-dark border rounded border-primary py-4 py-xl-5">
+    <div class="row gy-4 gy-md-0">
+        <div class="col-md-6">
+            <div class="p-xl-5 m-xl-5"><img class="rounded img-fluid w-100 fit-cover" style={{minHeight: '300px'}} src={cleanAirLogo} /></div>
+        </div>
+        <div class="col-md-6 d-md-flex align-items-md-center">
+            <div style={{maxWidth: '350px'}}>
+                <h2 class="text-uppercase fw-bold">Clean Air Task Force<br /></h2>
+                <p class="my-3">Their Mission: Push the technology and policy changes needed to achieve a zero-emissions, high-energy planet at an affordable cost.<br />Their Vision: Meet the world’s rising energy demand in a way that is financially, socially, and environmentally sustainable.<br /></p>
+            </div>
+        </div>
+    </div>
+</div>
     </div>
   )
 }
