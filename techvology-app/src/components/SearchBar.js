@@ -44,7 +44,7 @@ const SearchBar = (props) => {
                             id="search"
                             onChange={handleSearchChange}
                             onKeyPress={addFromSearch}
-                        //  value={query}
+                        //  value={query}U
                         />
                     </div>
                     <div class="col-1"></div>

@@ -34,12 +34,12 @@ const NavBar = (props) => {
           <div class="collapse navbar-collapse" id="navcol-1">
           {(token && token !== "" && token !== undefined) ? <>
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item"><a class="nav-link" to="/leaderboard" href="/leaderboard">Leaderboard</a></li>
-              <li class="nav-item"><a class="nav-link" href="/donation" to="/donation">Donation</a></li>
-              <li class="nav-item"><a class="nav-link" to="/action" href="/action">Action</a></li>
-              <li class="nav-item"><a class="nav-link" to="/log" href="/log">UserLog</a></li>
-              <li class="nav-item"><a class="nav-link" to="/analytics" href="/analytics">Analytics</a></li>
-            </ul><button class="btn border rounded-pill shadow-none" type="button" onClick={handleLogout}>Sign Out</button> </>
+                              <li class="nav-item"><a class="nav-link" to="/action" href="/action">Actions</a></li>
+                              <li class="nav-item"><a class="nav-link" to="/log" href="/log">Log</a></li>
+                              <li class="nav-item"><a class="nav-link" to="/analytics" href="/analytics">Analytics</a></li>
+                              <li class="nav-item"><a class="nav-link" to="/leaderboard" href="/leaderboard">Leaderboard</a></li>
+                              <li class="nav-item"><a class="nav-link" href="/donation" to="/donation">Donation</a></li>
+             </ul><button class="btn border rounded-pill shadow-none" type="button" onClick={handleLogout}>Sign Out</button> </>
             :
               <>
               <ul class="navbar-nav mx-auto">

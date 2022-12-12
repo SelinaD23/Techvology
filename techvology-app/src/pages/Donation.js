@@ -15,7 +15,10 @@ const Donation = () => {
               <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
                 <div>
                   <h1 class="text-uppercase fw-bold text-white mb-3">Monthly Charity</h1>
-                  <p class="mb-4">Join the fight against climate change</p><button class="btn btn-light fs-5 py-2 px-4" type="button" href="https://www.catf.us/donate/" style={{backgroundColor: '#9FD983', color: '#37782C'}}>Donate Now!</button>
+                  <p class="mb-4">Join the fight against climate change</p>
+                  <a href="https://www.catf.us/donate/" target="_blank" rel="noreferrer">
+                  <button class="btn btn-light fs-5 py-2 px-4" type="button" href="https://www.catf.us/donate/" style={{backgroundColor: '#9FD983', color: '#37782C'}}>Donate Now!</button>
+                  </a>
                 </div>
               </div>
             </div>
