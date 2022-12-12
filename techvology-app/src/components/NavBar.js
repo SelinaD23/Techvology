@@ -3,15 +3,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavItem from 'react-bootstrap/NavItem';
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import logoImage from '../images/logo.png';
 
 const NavBar = (props) => {
+  const navigate = useNavigate();
   const token = sessionStorage.getItem('token');
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("curr_username");
-    window.location.reload();
+
+    navigate("/");
   }
 
   return (

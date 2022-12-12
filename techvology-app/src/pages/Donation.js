@@ -23,7 +23,7 @@ const Donation = () => {
         </div>
       </section>
       
-      <div class="container bg-dark border rounded border-primary py-4 py-xl-5">
+      <div class="container bg-dark rounded py-4 py-xl-5">
     <div class="row gy-4 gy-md-0">
         <div class="col-md-6">
             <div class="p-xl-5 m-xl-5"><img class="rounded img-fluid w-100 fit-cover" style={{minHeight: '300px'}} src={cleanAirLogo} /></div>
