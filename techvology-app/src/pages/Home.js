@@ -29,12 +29,12 @@ const Home = () => {
                     <p class="fs-4 my-3">Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, such as through variations in the solar cycle. But since the 1800s, human activities have been the main driver of climate change, primarily due to burning fossil fuels like coal, oil and gas. Burning fossil fuels generates greenhouse gas emissions that act like a blanket wrapped around the Earth, trapping the sun’s heat and raising temperatures. Examples of greenhouse gas emissions that are causing climate change include carbon dioxide and methane. These come from using gasoline for driving a car or coal for heating a building, for example. Clearing land and forests can also release carbon dioxide. Landfills for garbage are a major source of methane emissions. Energy, industry, transport, buildings, agriculture and land use are among the main emitters.</p>
                 </div>
             </div>
-            <div class="col-md-6"><img class="rounded img-fluid w-100 fit-cover" src={climateStrike}/></div>
+            <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center"><img class="rounded img-fluid w-100 fit-cover" src={climateStrike}/></div>
         </div>
     </Container>
     <div class="container py-4 py-xl-5">
         <div class="row gy-4 gy-md-0">
-            <div class="col-md-6"><img class="rounded img-fluid w-100 fit-cover" src={climateChange}/></div>
+            <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center"><img class="rounded img-fluid w-100 fit-cover" src={climateChange}/></div>
             <div class="col-md-6 d-md-flex align-items-md-center">
                 <div>
                     <p class="fs-4 my-3">Everyone can help limit climate change. From the way we travel, to the electricity we use, the food we eat, and the things we buy, we can make a difference.
